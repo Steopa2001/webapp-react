@@ -1,4 +1,4 @@
-import { BrowserRouter, Router, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./layout/Layout";
 import Home from "./pages/Home";
 import MovieDetail from "./pages/MovieDetail";
@@ -7,9 +7,12 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Router>
-          <Route />
-        </Router>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/movies/:id" element={<MovieDetail />} />
+          </Route>
+        </Routes>
       </BrowserRouter>
     </>
   );
