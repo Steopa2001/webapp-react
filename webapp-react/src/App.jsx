@@ -1,9 +1,16 @@
-
+import { BrowserRouter, Router, Route } from "react-router-dom";
+import Layout from "./layout/Layout";
+import Home from "./pages/Home";
+import MovieDetail from "./pages/MovieDetail";
 
 function App() {
   return (
     <>
-      <Header />
+      <BrowserRouter>
+        <Router>
+          <Route />
+        </Router>
+      </BrowserRouter>
     </>
   );
 }
