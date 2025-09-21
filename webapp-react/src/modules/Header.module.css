@@ -3,3 +3,12 @@ header {
     color: white;
     padding: 15px 0px;
 }
+
+img {
+    max-width: 100px;
+}
+
+.title_style {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+}
