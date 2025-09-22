@@ -60,7 +60,7 @@ const MovieDetail = () => {
                   <h4 className="director">{movie.director}</h4>
 
                   <div className="buttons">
-                    <button className="prv-btn" disabled={id === 1 ? true : false} onClick={() => goPrevPage()}>
+                    <button className="prv-btn" disabled={parseInt(id) === 1 ? true : false} onClick={() => goPrevPage()}>
                       <i className="fa-solid fa-caret-left"></i>
                     </button>
                     <button className="succ-btn"  onClick={() => goNextPage()}>
