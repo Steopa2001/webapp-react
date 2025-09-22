@@ -3,10 +3,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import ReviewCard from "../components/ReviewCard";
+import { useNavigate } from "react-router-dom";
 
 const MovieDetail = () => {
   // recuperiamo l'id passato alla rotta
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   // // definisco variabile di stato
   // const [movie, setMovie] = useState({
@@ -22,7 +25,7 @@ const MovieDetail = () => {
       .then((resp) => {
         setMovie(resp.data);
       })
-      .catch((err) => console.log(err));
+      .catch(() => navigate(`/not-found`, {replace: true}));
   };
 
   useEffect(fetchMovie, []);
