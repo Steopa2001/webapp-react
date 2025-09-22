@@ -38,7 +38,7 @@ MILESTONE 4
 
 Continuate a lavorare sulla repo di react e se serve in quella di express per fare in modo che nella pagina di dettaglio ci sia una chiamata ajax che recupera il dettaglio del film comprese le sue recensioni.
 
-Bonus
+### Bonus
 Curare l’aspetto estetico della vostra applicazione
 Realizzare le stelle con font-awesome per la media dei voti
 Realizzare i pulsanti per andare avanti ed indietro tra i film

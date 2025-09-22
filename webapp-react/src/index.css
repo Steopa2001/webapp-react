@@ -47,3 +47,26 @@ h6 {
 .overlay h2 {
   color: white;
 }
+
+.detail-card {
+  background-color: rgb(0, 0, 85);
+  margin: 50px 0px;
+}
+
+.cover-image {
+  width: 40%;
+}
+
+.cover-image img {
+  max-width: 100%;
+}
+
+.text-details {
+  width: 60%;
+  padding: 25px;
+}
+
+.text-details > * {
+  color: white;
+  margin: 20px 0px;
+}
