@@ -2,15 +2,18 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import ReviewCard from "../components/ReviewCard";
 
 const MovieDetail = () => {
   // recuperiamo l'id passato alla rotta
   const { id } = useParams();
 
-  // definisco variabile di stato
-  const [movie, setMovie] = useState({
-    reviews: [],
-  });
+  // // definisco variabile di stato
+  // const [movie, setMovie] = useState({
+  //   reviews: [],
+  // });
+
+  const [movie, setMovie] = useState({});
 
   // definisco il metodo che mi effettua la chiamata ajax per recuperare il libro attraverso l'id
   const fetchMovie = () => {
@@ -46,15 +49,16 @@ const MovieDetail = () => {
               </div>
             </div>
             <div className="reviews">
-              {movie.reviews.map((review) => {
-                return (
-                  <div className="review-card" key={review.id}>
-                    <h3>{review.name}</h3>
-                    <p>{review.vote}</p>
-                    <p>{review.text}</p>
-                  </div>
-                );
-              })}
+              <h2>Recensioni utenti:</h2>
+              {movie.reviews ? (
+                movie.reviews.map((review) => {
+                  return <ReviewCard key={review.id} review={review} />;
+                })
+              ) : (
+                <h2>
+                  <em>Non ci sono ancora recensioni per questo libro</em>
+                </h2>
+              )}
             </div>
           </div>
         </div>
