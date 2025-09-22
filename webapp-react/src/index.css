@@ -70,3 +70,29 @@ h6 {
   color: white;
   margin: 20px 0px;
 }
+
+.title {
+  font-size: 60px;
+  color: orange;
+}
+
+.to-home-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+}
+
+.square-btn-to-home {
+  border: 2px solid white;
+  padding: 30px;
+  background-color: rgb(0, 0, 85);
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.square-btn-to-home:hover {
+  border: 2px solid rgb(0, 0, 41);
+  background-color: white;
+  color: rgb(0, 0, 85);
+}

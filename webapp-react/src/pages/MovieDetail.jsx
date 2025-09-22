@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const MovieDetail = () => {
   // recuperiamo l'id passato alla rotta
@@ -19,6 +20,7 @@ const MovieDetail = () => {
   useEffect(fetchMovie, []);
 
   return (
+    <>
     <div className="container">
       <div className="row">
         <div className="col-12">
@@ -28,17 +30,23 @@ const MovieDetail = () => {
                 <img src={`/img/${movie.image}`} alt={movie.title} />
               </div>
               <div className="text-details">
-                <h1>{movie.title}</h1>
-                <p>{movie.abstract}</p>
-                <p>{movie.genre}</p>
-                <p>{movie.release_year}</p>
-                <p>{movie.director}</p>
+                <h1 className="title">{movie.title}</h1>
+                <p className="abstract">{movie.abstract}</p>
+                <p className="genre">{movie.genre}</p>
+                <p className="year"><em>{movie.release_year}</em></p>
+                <h4 className="director">{movie.director}</h4>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div className="to-home-btn">
+      <Link className="square-btn-to-home" to='/'>
+      <i className="fas fa-house"></i>
+      </Link>
+    </div>
+    </>
   );
 };
 
