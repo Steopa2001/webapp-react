@@ -25,10 +25,20 @@ const MovieDetail = () => {
       .then((resp) => {
         setMovie(resp.data);
       })
-      .catch(() => navigate(`/not-found`, {replace: true}));
+      .catch(() => navigate(`/not-found`, { replace: true }));
   };
 
-  useEffect(fetchMovie, []);
+  const goNextPage = () => {
+    const page = parseInt(id) + 1;
+    navigate('/movies/' + page)
+  }
+
+  const goPrevPage = () => {
+    const page = parseInt(id) - 1;
+    navigate('/movies/' + page)
+  }
+
+  useEffect(fetchMovie, [id, navigate]);
 
   return (
     <>
@@ -48,6 +58,17 @@ const MovieDetail = () => {
                     <em>{movie.release_year}</em>
                   </p>
                   <h4 className="director">{movie.director}</h4>
+
+                  <div className="buttons">
+                    <button className="prv-btn" disabled={id === 1 ? true : false} onClick={() => goPrevPage()}>
+                      <i className="fa-solid fa-caret-left"></i>
+                    </button>
+                    <button className="succ-btn"  onClick={() => goNextPage()}>
+                      <i
+                        className="fa-solid fa-caret-right"
+                      ></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
