@@ -1,0 +1,47 @@
+## ESERCIZIO 1
+
+ Ora è il momento di prepararci al frontend della nostra Web App!
+ 
+ MILESTONE 0 
+ 
+Ragionare e preparare uno schemino per impostare la struttura del lavoro in maniera da sfruttare la riutalizzabilità dei componenti React e le loro props.
+
+MILESTONE 1
+
+Mettiamo su un nuovo progetto React aiutandoci con Vite
+Ripuliamo come sempre l’app da file e codice di esempio non necessari
+Installiamo il necessario: React Router, Axios e Bootstrap (se volete utilizzarlo)
+
+MILESTONE 2
+
+Creiamo un layout di base per la nostra applicazione ed impostiamo le rotte per le diverse pagine.
+Creiamo 2 pagine:
+   
+La home, in cui mostreremo la lista dei film
+La pagina di dettaglio di un singolo film
+
+MILESTONE 3
+
+Configuriamo l’app di backend (repo webapp-express) a ricevere chiamate dalla nostra applicazione React, installando e impostando il middleware CORS
+Proviamo quindi ad effettuare una chiamata Ajax dalla home del progetto React, per ottenere la lista dei libri
+
+### Bonus
+
+Curare l’aspetto estetico della vostra applicazione
+Realizzare un modulo css da importare in una componente
+
+## CONSEGNA 19/09/2025
+
+## ESERCIZIO 2
+
+MILESTONE 4
+
+Continuate a lavorare sulla repo di react e se serve in quella di express per fare in modo che nella pagina di dettaglio ci sia una chiamata ajax che recupera il dettaglio del film comprese le sue recensioni.
+
+Bonus
+Curare l’aspetto estetico della vostra applicazione
+Realizzare le stelle con font-awesome per la media dei voti
+Realizzare i pulsanti per andare avanti ed indietro tra i film
+Realizzare la pagina NotFound
+
+## CONSEGNA 22/09/2025
