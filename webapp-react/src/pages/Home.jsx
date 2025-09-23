@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import MovieCard from "../components/MovieCard";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   //definisco variabili di stato
@@ -26,12 +27,15 @@ const Home = () => {
         <div className="col-12 text-center lista-libri">
           <h1>Lista Libri</h1>
         </div>
+        <div className="col-12 text-end">
+          <Link to="/movies/create" className="btn btn-primary">
+            Aggiungi nuovo film
+          </Link>
+        </div>
       </div>
       <div className="row g-4">
         {movies.map((movie) => {
-          return (
-            <MovieCard key={movie.id} movie={movie}/>
-          );
+          return <MovieCard key={movie.id} movie={movie} />;
         })}
       </div>
     </div>

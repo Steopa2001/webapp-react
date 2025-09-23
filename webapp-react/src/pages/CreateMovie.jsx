@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const CreateMovie = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +11,8 @@ const CreateMovie = () => {
     abstract: "",
   });
 
+  const navigate = useNavigate();
+
   const setFieldValue = (e) => {
     const { name, value } = e.target;
     if (name === "image")
@@ -16,9 +20,22 @@ const CreateMovie = () => {
     else setFormData({ ...formData, [name]: value });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios
+      .post(`http://localhost:3000/api/movies`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+      .then((resp) => {
+        console.log("Film inserito correttamente");
+        navigate("/");
+      });
+  };
+
   return (
     <div className="container mt-4">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="row mb-3">
           <div className="col">
             <label htmlFor="title" className="form-label">
@@ -59,7 +76,6 @@ const CreateMovie = () => {
             </label>
             <input
               onChange={setFieldValue}
-              value={formData.image}
               type="file"
               className="form-control"
               id="image"
@@ -94,6 +110,11 @@ const CreateMovie = () => {
           </div>
         </div>
       </form>
+      <div className="to-home-btn">
+        <Link className="square-btn-to-home" to="/" title="Torna alla homepage">
+          <i className="fas fa-house"></i>
+        </Link>
+      </div>
     </div>
   );
 };
