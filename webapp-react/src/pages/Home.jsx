@@ -23,8 +23,8 @@ const Home = () => {
   return (
     <div className="container my-5">
       <div className="row mb-4">
-        <div className="col-12 text-center">
-          <h1>Home</h1>
+        <div className="col-12 text-center lista-libri">
+          <h1>Lista Libri</h1>
         </div>
       </div>
       <div className="row g-4">

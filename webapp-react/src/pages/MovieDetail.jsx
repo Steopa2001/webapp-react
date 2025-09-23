@@ -72,7 +72,7 @@ const MovieDetail = () => {
                 </div>
               </div>
             </div>
-            <div className="reviews">
+            <div className="reviews rec-color">
               <h2>Recensioni utenti:</h2>
               {movie.reviews ? (
                 movie.reviews.map((review) => {
