@@ -4,10 +4,13 @@ import Home from "./pages/Home";
 import MovieDetail from "./pages/MovieDetail";
 import NotFound from "./pages/NotFound";
 import CreateMovie from "./pages/CreateMovie";
+import GlobalContext from "./contexts/globalContext";
+import { useState } from "react";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(false);
   return (
-    <>
+    <GlobalContext.Provider value={{isLoading, setIsLoading}}>
       <BrowserRouter>
         <Routes>
           <Route element={<Layout />}>
@@ -18,7 +21,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </>
+    </GlobalContext.Provider>
   );
 }
 
