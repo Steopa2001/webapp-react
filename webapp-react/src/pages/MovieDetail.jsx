@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import GlobalContext from "../contexts/globalContext";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import ReviewCard from "../components/ReviewCard";
@@ -18,25 +19,29 @@ const MovieDetail = () => {
 
   const [movie, setMovie] = useState({});
 
+  const { setIsLoading } = useContext(GlobalContext);
+
   // definisco il metodo che mi effettua la chiamata ajax per recuperare il libro attraverso l'id
   const fetchMovie = () => {
+    setIsLoading(true);
     axios
       .get(`http://localhost:3000/api/movies/${id}`)
       .then((resp) => {
         setMovie(resp.data);
+        setIsLoading(false);
       })
       .catch(() => navigate(`/not-found`, { replace: true }));
   };
 
   const goNextPage = () => {
     const page = parseInt(id) + 1;
-    navigate('/movies/' + page)
-  }
+    navigate("/movies/" + page);
+  };
 
   const goPrevPage = () => {
     const page = parseInt(id) - 1;
-    navigate('/movies/' + page)
-  }
+    navigate("/movies/" + page);
+  };
 
   useEffect(fetchMovie, [id, navigate]);
 
@@ -60,13 +65,15 @@ const MovieDetail = () => {
                   <h4 className="director">{movie.director}</h4>
 
                   <div className="buttons">
-                    <button className="prv-btn" disabled={parseInt(id) === 1 ? true : false} onClick={() => goPrevPage()}>
+                    <button
+                      className="prv-btn"
+                      disabled={parseInt(id) === 1 ? true : false}
+                      onClick={() => goPrevPage()}
+                    >
                       <i className="fa-solid fa-caret-left"></i>
                     </button>
-                    <button className="succ-btn"  onClick={() => goNextPage()}>
-                      <i
-                        className="fa-solid fa-caret-right"
-                      ></i>
+                    <button className="succ-btn" onClick={() => goNextPage()}>
+                      <i className="fa-solid fa-caret-right"></i>
                     </button>
                   </div>
                 </div>

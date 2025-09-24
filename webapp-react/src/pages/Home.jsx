@@ -1,20 +1,23 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import GlobalContext from "../contexts/globalContext";
 import MovieCard from "../components/MovieCard";
 import { Link } from "react-router-dom";
-import Loader from "../components/Loader";
 
 const Home = () => {
   //definisco variabili di stato
   const [movies, setMovies] = useState([]);
 
+  const {setIsLoading} = useContext(GlobalContext);
+
   //funzione che recupera i film attraverso la chiamata ajax
   const fetchMovies = () => {
+    setIsLoading(true);
     axios
       .get("http://localhost:3000/api/movies")
       .then((resp) => {
         setMovies(resp.data);
-        console.log(resp.data);
+        setIsLoading(false);
       })
       .catch((err) => console.log(err));
   };
@@ -24,7 +27,6 @@ const Home = () => {
 
   return (
     <div className="container my-5">
-      <Loader/>
       <div className="row mb-4">
         <div className="col-12 text-center lista-libri">
           <h1>Lista Film</h1>
